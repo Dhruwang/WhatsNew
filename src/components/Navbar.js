@@ -1,8 +1,15 @@
-
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom';
 export default class Navbar extends Component {
-
+    constructor() {
+        super();
+        this.state = {category: ''};
+      }
+      changeCategory=(cate)=>{
+        this.setState({
+            category:'sports'
+        })
+      }
     render() {
         return (
             <div>
@@ -15,8 +22,20 @@ export default class Navbar extends Component {
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
-                                <a className="nav-link" href="/">Features</a>
-                                <a className="nav-link" href="/">Pricing</a>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Categories
+                                    </a>
+                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <Link className="dropdown-item" to='/general'>General</Link>
+                                        <Link className="dropdown-item" to='/sports'>Sports</Link>
+                                        <Link className="dropdown-item" to='/business'>Business</Link>
+                                        <Link className="dropdown-item" to='/entertainment'>Entertainment</Link>
+                                        <Link className="dropdown-item" to='/science'>Science</Link>
+                                        <Link className="dropdown-item" to='/technology'>Technology</Link>
+        
+                                    </div>
+                                </li>
                             </div>
                         </div>
                     </div>
