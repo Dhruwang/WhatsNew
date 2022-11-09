@@ -80,7 +80,7 @@ export default class News extends Component {
           {this.state.article.map((element) => {
             console.log(element.title)
             return <div className='col-md-4' key={element.url} >
-              < NewsItem key={element.url} title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} />
+              < NewsItem key={element.url} title={element.title} description={element.description} imageUrl={element.urlToImage===null?'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png':element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt.substring(0,10)} />
             </div>
           })}
         </div>
