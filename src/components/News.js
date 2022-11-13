@@ -1,81 +1,64 @@
-import React, { Component } from 'react'
+import React, {useState,useEffect} from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
 
 
-export default class News extends Component {
-  static defaultProps = {
-    country: 'in',
-    pageSize: '6',
-    category: 'general'
+const News = (props)=> {  
+  
+  const [article, setarticle] = useState([])
+  const [loading, setloading] = useState(false)
+  let [page, setpage] = useState(1)
+  const [totalResults, settotalResults] = useState(0)
 
-  }
-  static propTypes = {
-    country: PropTypes.string,
-    pageSize: PropTypes.number,
-    category: PropTypes.string
-  }
-  articles = []
-  constructor() {
-    super();
-    this.state = {
-      article: this.articles,
-      loading: false,
-      page: 1,
-
-    }
-  }
-  fetchMoreData = async() => {
-    this.setState({page:  ++this.state.page});
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
+  const fetchMoreData = async() => {
+    setpage(++page)
+    
+    let url =  `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+    setloading(true)
     let data = await fetch(url)
     let parsedData = await data.json();
-    this.setState({
-      totalResults : parsedData.totalResults,
-      article: this.state.article.concat(parsedData.articles),
-      loading: false
-    })
+    settotalResults(parsedData.totalResults)
+    setarticle(article.concat(parsedData.articles))
+    setloading(false)
 
   };
-  async updateNews() {
-    this.props.setProgress(10)
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
+  const updateNews = async()=>{
+    props.setProgress(10)
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+    setloading(true)
     let data = await fetch(url)
-    this.props.setProgress(30)
+    props.setProgress(30)
     let parsedData = await data.json();
-    this.setState({
-      totalResults : parsedData.totalResults,
-      article: parsedData.articles,
-      loading: false
-    })
-    this.props.setProgress(100)
-  }
-  async componentDidMount() {
-    this.updateNews();
-
+    setarticle(parsedData.articles)
+    setloading(false)
+    settotalResults(parsedData.totalResults)
+    props.setProgress(100)
   }
 
-  render() {
+
+  useEffect(() => {
+      updateNews();
+  }, [])
+  
+
     return (
       <>
         <h1 className='my-4 text-center'>WhatsNew - Trending news</h1>
         <div className='text-center align-middle'>
         </div>
         <InfiniteScroll
-          dataLength={this.state.article.length}
-          next={this.fetchMoreData}
-          hasMore={this.state.article.length !== this.state.totalResults}
+          dataLength={article.length}
+          next={fetchMoreData}
+          hasMore={article.length !== totalResults}
           loader={<Spinner />}
         >
           <div className='container text-center'>
           <div className='row'>
 
-            {this.state.article.map((element,index) => {
-              // console.log(element.title)
+            {article.map((element,index) => {
+
               return <div className='col-md-4' key={index} >
                 < NewsItem key={element.url} title={element.title} description={element.description} imageUrl={element.urlToImage === null ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png' : element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt.substring(0, 10)} />
               </div>
@@ -87,4 +70,16 @@ export default class News extends Component {
       </>
     )
   }
+News.defaultProps = {
+  country: 'in',
+  pageSize: '6',
+  category: 'general'
+
 }
+News.propTypes = {
+  country: PropTypes.string,
+  pageSize: PropTypes.number,
+  category: PropTypes.string
+}
+
+export default News

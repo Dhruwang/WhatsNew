@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-export default class Navbar extends Component {
-    constructor() {
-        super();
-        this.state = {category: ''};
-      }
-      changeCategory=(cate)=>{
-        this.setState({
-            category:'sports'
-        })
-      }
-    render() {
+
+
+ const Navbar=()=> {
+   
         return (
             <div>
                 <nav className="navbar navbar-expand-lg bg-light">
@@ -42,5 +35,7 @@ export default class Navbar extends Component {
                 </nav>
             </div>
         )
-    }
+    
 }
+
+export default Navbar
