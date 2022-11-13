@@ -45,7 +45,7 @@ const News = (props)=> {
 
     return (
       <>
-        <h1 className='my-4 text-center'>WhatsNew - Trending news</h1>
+        <h1 className=' text-center' style={{marginTop:'90px',marginBottom:'50px'}}>WhatsNew - Trending news</h1>
         <div className='text-center align-middle'>
         </div>
         <InfiniteScroll

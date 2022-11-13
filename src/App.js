@@ -7,6 +7,7 @@ import News from './components/News' ;
 import LoadingBar from 'react-top-loading-bar'
 
 
+
 const App =()=> {
   const [progress, setprogress] = useState(0)
   const setProgress=(progress)=>{
@@ -17,7 +18,7 @@ const App =()=> {
     return (
       <div>
         <BrowserRouter>
-          <Navbar />
+          <Navbar sticky='top'/>
           <LoadingBar
             color='#f11946'
             progress={progress}
