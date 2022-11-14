@@ -41,11 +41,11 @@ const News = (props)=> {
   useEffect(() => {
       updateNews();
   }, [])
-  
+
 
     return (
       <>
-        <h1 className=' text-center' style={{marginTop:'90px',marginBottom:'50px'}}>WhatsNew - Trending news</h1>
+        <h1 className=' text-center' id='mainHeading' style={{marginTop:'90px',marginBottom:'50px'}}>WhatsNew - Trending news</h1>
         <div className='text-center align-middle'>
         </div>
         <InfiniteScroll

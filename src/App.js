@@ -10,22 +10,29 @@ import LoadingBar from 'react-top-loading-bar'
 
 const App =()=> {
   const [progress, setprogress] = useState(0)
+  const [theme,setTheme] = useState('light')
+  var col = document.getElementById("mainHeading");
+  const enableDarkMode =()=>{
+      document.body.style.background = 'black';
+      col.style.color="white";
+      setTheme('dark')
+    }
   const setProgress=(progress)=>{
     setprogress(progress)
   }
-  const apiKey = process.env.REACT_APP_API_KEY
-    
+  
+  const apiKey=process.env.REACT_APP_API_KEY
     return (
       <div>
         <BrowserRouter>
-          <Navbar sticky='top'/>
+          <Navbar sticky='top' enableDarkMode={enableDarkMode}/>
           <LoadingBar
             color='#f11946'
             progress={progress}
             height={4}
           />
           <Routes>
-            <Route exact path="/" element={<News setProgress={setProgress} apiKey={apiKey}  key='general' pageSize={6} category={'general'} country={'in'} />} />
+            <Route exact path="/" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={6} category={'general'} country={'in'} />} />
             <Route exact path="/general" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={6} category={'general'} country={'in'} />} />
             <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key="sports" pageSize={6} category={'sports'} country={'in'} />} />
             <Route exact path="/entertainment" element={<News setProgress={setProgress} apiKey={apiKey} key="entertainment" pageSize={6} category={'entertainment'} country={'in'} />} />
