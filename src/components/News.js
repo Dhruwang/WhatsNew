@@ -60,7 +60,7 @@ const News = (props)=> {
             {article.map((element,index) => {
 
               return <div className='col-md-4' key={index} >
-                < NewsItem key={element.url} title={element.title} description={element.description} imageUrl={element.urlToImage === null ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png' : element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt.substring(0, 10)} />
+                < NewsItem key={element.url} theme={props.theme} title={element.title} description={element.description} imageUrl={element.urlToImage === null ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png' : element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt.substring(0, 10)} />
               </div>
             })}
 

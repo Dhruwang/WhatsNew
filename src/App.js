@@ -12,13 +12,14 @@ const App =()=> {
   const [progress, setprogress] = useState(0)
   const [theme,setTheme] = useState('light')
   var col = document.getElementById("mainHeading");
-  const enableDarkMode =()=>{
-      document.body.style.background = 'black';
-      col.style.color="white";
-      setTheme('dark')
-    }
+  
   const setProgress=(progress)=>{
     setprogress(progress)
+  }
+  const enableDarkMode =()=>{
+    document.body.style.background = 'black';
+    col.style.color="white";
+    setTheme('dark')
   }
   
   const apiKey=process.env.REACT_APP_API_KEY
@@ -32,7 +33,7 @@ const App =()=> {
             height={4}
           />
           <Routes>
-            <Route exact path="/" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={6} category={'general'} country={'in'} />} />
+            <Route exact path="/" element={<News setProgress={setProgress} theme={theme} apiKey={apiKey} key='general' pageSize={6} category={'general'} country={'in'} />} />
             <Route exact path="/general" element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={6} category={'general'} country={'in'} />} />
             <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key="sports" pageSize={6} category={'sports'} country={'in'} />} />
             <Route exact path="/entertainment" element={<News setProgress={setProgress} apiKey={apiKey} key="entertainment" pageSize={6} category={'entertainment'} country={'in'} />} />
