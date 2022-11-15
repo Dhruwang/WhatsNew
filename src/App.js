@@ -17,16 +17,23 @@ const App =()=> {
     setprogress(progress)
   }
   const enableDarkMode =()=>{
-    document.body.style.background = 'black';
+    if(theme==='light'){
+      document.body.style.background = 'black';
     col.style.color="white";
     setTheme('dark')
+    }
+    else{
+      document.body.style.background = 'white';
+    col.style.color="black";
+    setTheme('light')
+    }
   }
   
   const apiKey=process.env.REACT_APP_API_KEY
     return (
       <div>
         <BrowserRouter>
-          <Navbar sticky='top' enableDarkMode={enableDarkMode}/>
+          <Navbar sticky='top' enableDarkMode={enableDarkMode} theme={theme}/>
           <LoadingBar
             color='#f11946'
             progress={progress}
