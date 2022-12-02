@@ -7,7 +7,12 @@ export default function Home() {
     <>
     <div className='main'>
         <video id='myVideo' src={background} autoPlay loop muted />
-        <h1 className='overlay text-center text-light'>WhatsNew</h1>
+        <div className='home-text text-center'>
+        <h1 className='overlay text-center text-light my-font'>WhatsNew</h1>
+        <p className='text-light text-center fs-2 my-font'>Expore What is new around the world</p>
+        <button class="btn-custom fs-4" href='#general' type="button">Browse</button>
+
+        </div>
     </div>
     </>
   )

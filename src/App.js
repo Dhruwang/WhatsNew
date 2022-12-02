@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import News from './components/News' ;
 import LoadingBar from 'react-top-loading-bar'
 import Home from './components/Home';
+import "./fonts/Anton-Regular.ttf"
 
 
 

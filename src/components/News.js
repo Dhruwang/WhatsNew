@@ -44,8 +44,8 @@ const News = (props)=> {
 
 
     return (
-      <div className='newsMain bg-light'>
-        <h1 className=' text-center' id='mainHeading' style={{marginTop:'90px',marginBottom:'50px'}}>WhatsNew - Trending news</h1>
+      <div className='newsMain bg-light py-2'>
+        <h1 className=' text-center' id='mainHeading' style={{marginTop:'70px',marginBottom:'50px'}}>{props.category.toUpperCase()}</h1>
         <div className='text-center align-middle'>
         </div>
         <InfiniteScroll

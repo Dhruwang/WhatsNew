@@ -12,7 +12,23 @@
     z-index: -1000;
 }
 .overlay{
+    font-size: 6rem;
+}
+.home-text{
     padding: 40vh;
-    border: 2px solid yellow;
-    font-size: 5rem;
+    /* border: 2px solid yellow; */
+}
+.my-font{
+    font-family: 'light';
+
+}
+.btn-custom{
+    padding: 1rem 2rem;
+}
+.btn-custom:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+    border: 1px solid white;
+    background: transparent;
+    color: white;
 }

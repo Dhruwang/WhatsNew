@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: "Light";   /*Can be any text*/
+  src: local("Anton"),
+    url("./fonts/Anton-Regular.ttf") format("truetype");
+}
