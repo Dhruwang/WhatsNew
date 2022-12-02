@@ -1,0 +1,18 @@
+/* .home{
+    background: url('../Media/background.mp4');
+} */
+.main{
+    height: 100vh;
+}
+#myVideo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1000;
+}
+.overlay{
+    padding: 40vh;
+    border: 2px solid yellow;
+    font-size: 5rem;
+}

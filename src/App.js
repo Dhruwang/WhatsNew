@@ -5,6 +5,7 @@ import React, { useState,useEffect } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News' ;
 import LoadingBar from 'react-top-loading-bar'
+import Home from './components/Home';
 
 
 
@@ -34,6 +35,7 @@ const App =()=> {
       <div>
         <BrowserRouter>
           <Navbar sticky='top' enableDarkMode={enableDarkMode} theme={theme}/>
+          <Home />
           <LoadingBar
             color='#f11946'
             progress={progress}

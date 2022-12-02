@@ -6,8 +6,8 @@ import App from '../App';
 const Navbar = (props) => {
 
     return (
-        <div className='mb-4'>
-            <nav className={`navbar fixed-top navbar-expand-lg bg-${props.theme==='light'?'light':'dark'} mb-4`}>
+        <div >
+            <nav className={`navbar fixed-top navbar-expand-lg bg-light`}>
                 <div className="container-fluid d-flex">
                     <a className={`navbar-brand text-${props.theme==='light'?'dark':'light'}`} href="/">WhatsNew</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,10 @@ const Navbar = (props) => {
 
                                 </div>
                             </li>
+                            <div className="form-check form-switch float-right ">
+                    <input className="form-check-input" type="checkbox" onChange={props.enableDarkMode} role="switch" id="flexSwitchCheckDefault" />
+                    <i class={`bi bi-moon-fill text-${props.theme==='light'?'dark':'light'} mx-2`}></i>
+                </div>
                         </div>
                     </div>
                 </div>

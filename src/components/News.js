@@ -44,7 +44,7 @@ const News = (props)=> {
 
 
     return (
-      <>
+      <div className='newsMain bg-light'>
         <h1 className=' text-center' id='mainHeading' style={{marginTop:'90px',marginBottom:'50px'}}>WhatsNew - Trending news</h1>
         <div className='text-center align-middle'>
         </div>
@@ -67,7 +67,7 @@ const News = (props)=> {
           </div>
         </div>
         </InfiniteScroll>
-      </>
+      </div>
     )
   }
 News.defaultProps = {
