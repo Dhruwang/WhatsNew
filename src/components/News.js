@@ -44,7 +44,7 @@ const News = (props)=> {
 
 
     return (
-      <div className='newsMain bg-light py-2'>
+      <div className='newsMain bg-light py-2' id='news'>
         <h1 className=' text-center' id='mainHeading' style={{marginTop:'70px',marginBottom:'50px'}}>{props.category.toUpperCase()}</h1>
         <div className='text-center align-middle'>
         </div>
@@ -59,7 +59,7 @@ const News = (props)=> {
 
             {article.map((element,index) => {
 
-              return <div className='col-md-4' key={index} >
+              return <div className='col-md-6 col-lg-4' key={index} >
                 < NewsItem key={element.url} theme={props.theme} title={element.title} description={element.description} imageUrl={element.urlToImage === null ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png' : element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt.substring(0, 10)} />
               </div>
             })}

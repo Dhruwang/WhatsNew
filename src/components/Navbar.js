@@ -7,7 +7,7 @@ const Navbar = (props) => {
 
     const [Navbar, setNavbar] = useState(false)
     const changeBackground = () => {
-        console.log(window.scrollY)
+        // console.log(window.scrollY)
         if (window.scrollY >= 66) {
           setNavbar(true)
         } else {
@@ -26,7 +26,7 @@ const Navbar = (props) => {
                 <div className="container-fluid d-flex justify-content-between">
                     <a className={`navbar-brand fs-1 text-${Navbar===false?'light':'dark'}`} href="/">WhatsNew</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon" style={{stroke:"white !important"}}></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div className="navbar-nav">

@@ -1,9 +1,6 @@
 /* .home{
     background: url('../Media/background.mp4');
 } */
-.main{
-    height: 100vh;
-}
 #myVideo{
     width: 100%;
     height: 100%;
@@ -11,11 +8,12 @@
     position: fixed;
     z-index: -1000;
 }
-.overlay{
-    font-size: 6rem;
+.heading{
+    font-size: 50px;
+    /* border: 2px solid green; */
 }
-.home-text{
-    padding: 40vh;
+.home-container{
+    padding: 40vh 0vh;
     /* border: 2px solid yellow; */
 }
 .my-font{
@@ -32,3 +30,8 @@
     background: transparent;
     color: white;
 }
+@media screen and (min-width: 1000px) {
+    .heading {
+      font-size: 75px;
+    }
+  }

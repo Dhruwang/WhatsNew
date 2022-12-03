@@ -5,15 +5,13 @@ import background from '../Media/background.mp4'
 export default function Home() {
   return (
     <>
-    <div className='main'>
         <video id='myVideo' src={background} autoPlay loop muted />
-        <div className='home-text text-center'>
-        <h1 className='overlay text-center text-light my-font'>WhatsNew</h1>
+        <div className='container home-container text-center'>
+        <h1 className='heading w-100 text-center text-light my-font'>WhatsNew</h1>
         <p className='text-light text-center fs-2 my-font'>Expore What is new around the world</p>
-        <button class="btn-custom fs-4" href='#general' type="button">Browse</button>
+        <a href='#news'><button class="btn-custom fs-4"  type="button">Browse</button></a>
 
         </div>
-    </div>
     </>
   )
 }
